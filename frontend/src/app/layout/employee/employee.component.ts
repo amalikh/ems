@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FileUploader } from 'ng2-file-upload';
 import { Console } from 'console';
 
-const URL = 'http://localhost:3000/uploads';
+const URL = 'https://em-system-heroku.herokuapp.com/uploads';
 
 
 @Component({

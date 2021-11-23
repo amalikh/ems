@@ -16,40 +16,40 @@ const HEADERS = {
 })
 export class ApiService {
 
-
+base_url = "https://em-system-heroku.herokuapp.com/"
 
   constructor(
     private http: HttpClient
   ) { }
 
   getAllEmployee() {
-    return this.http.get<any>("http://localhost:3000/employee/all")
+    return this.http.get<any>(this.base_url+"employee/all")
       .pipe(map((res: any) => {
         return res;
       }))
   }
 
   postUser(data: any) {
-    return this.http.post<any>("http://localhost:3000/user/signup", data)
+    return this.http.post<any>(this.base_url+ "user/signup", data)
       .pipe(map((res: any) => { return res; }))
   }
 
   deleteEmployee(id: number) {
-    return this.http.delete<any>("http://localhost:3000/user/" + id)
+    return this.http.delete<any>(this.base_url+"user/" + id)
       .pipe(map((res: any) => {
         return res;
       }))
   }
 
   updateEmployee(data: any, id: number) {
-    return this.http.put<any>("http://localhost:3000/employee/update/" + id, data)
+    return this.http.put<any>(this.base_url+"employee/update/" + id, data)
       .pipe(map((res: any) => {
         return res;
       }))
   }
 
   login(data: any) {
-    return this.http.post<any>("http://localhost:3000/user/login", data)
+    return this.http.post<any>(this.base_url+"user/login", data)
       .pipe(map((res: any) => {
         return res;
 
@@ -58,7 +58,7 @@ export class ApiService {
 
 
   getusername() {
-    return this.http.get("http://localhost:3000/user/dashboard", {
+    return this.http.get(this.base_url+"user/dashboard", {
       observe: 'body',
       // params: new HttpParams().append('token', localStorage.getItem('token')),
       headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'))
@@ -66,36 +66,36 @@ export class ApiService {
   }
 
   postAttendance(data: any) {
-    return this.http.post<any>("http://localhost:3000/attendance/daily", data)
+    return this.http.post<any>(this.base_url+"attendance/daily", data)
       .pipe(map((res: any) => { return res; }))
   }
 
   postLeave(data: any) {
-    return this.http.post<any>("http://localhost:3000/leave/add", data)
+    return this.http.post<any>(this.base_url+"leave/add", data)
       .pipe(map((res: any) => { return res; }))
   }
 
   postEmployee(data: any) {
-    return this.http.post<any>("http://localhost:3000/employee/new", data, HEADERS)
+    return this.http.post<any>(this.base_url+"employee/new", data, HEADERS)
       .pipe(map((res: any) => { return res; }))
   }
 
   postPayroll(data: any) {
-    return this.http.post<any>("http://localhost:3000/payroll/add", data, HEADERS)
+    return this.http.post<any>(this.base_url+"payroll/add", data, HEADERS)
       .pipe(map((res: any) => { return res; }))
   }
 
   getPayrolls() {
-    return this.http.get<any>("http://localhost:3000/payroll/all")
+    return this.http.get<any>(this.base_url+"payroll/all")
       .pipe(map((res: any) => { return res; }))
   }
   getAllAttendance() {
-    return this.http.get<any>("http://localhost:3000/attendance/all")
+    return this.http.get<any>(this.base_url+"attendance/all")
       .pipe(map((res: any) => { return res; }))
   }
 
   getAllLeave() {
-    return this.http.get<any>("http://localhost:3000/leave/all")
+    return this.http.get<any>(this.base_url+"leave/all")
       .pipe(map((res: any) => { return res; }))
   }
 

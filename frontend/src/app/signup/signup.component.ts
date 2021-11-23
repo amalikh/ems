@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
   }
 
   signUp(){
-this.http.post<any>("http://localhost:3000/user/signup",this.signupForm.value)
+this.http.post<any>("https://em-system-heroku.herokuapp.com/user/signup",this.signupForm.value)
 .subscribe(res =>{
   alert("signup successful");
   this.signupForm.reset();

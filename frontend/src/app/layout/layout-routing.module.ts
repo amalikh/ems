@@ -18,7 +18,7 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: 'newtask', pathMatch: 'prefix' },
+            { path: '', redirectTo: 'login', pathMatch: 'prefix' },
             {
                 path: 'blank-page',
                 loadChildren: () => import('./blank-page/blank-page.module').then((m) => m.BlankPageModule)
